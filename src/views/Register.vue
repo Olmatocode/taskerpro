@@ -18,9 +18,8 @@
 
 
     </form>
-    <div style="font-weight: bold; margin-top: 50px; position: absolute"> {{ output }}</div>
-  </div>
 
+  </div>
 
 </template>
 
@@ -44,16 +43,16 @@ export default {
           this.signup()
           this.unhide()
         } else {
-          this.output = "Your passwords do not match."
+          alert("Your passwords do not match.")
         }
       } else {
-        this.output = "Fill out the required fields to continue."
+        alert("Fill out the required fields to continue.")
       }
     },
     signup: function () {
-      this.$http.post("api/tasker/newClient", this.newClient)
+      this.$http.post("api/public/tasker/newClient", this.newClient)
           .then(response => {
-            this.output = "Welcome! Your client id is: " + response.data
+            alert("Welcome! Your client id is: " + response.data)
           })
     },
     passVis: function () {
